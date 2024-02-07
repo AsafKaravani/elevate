@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { FC } from 'react';
-import { useMutation_CreateProfile, useQuery_Profile } from '../../../core/api/api';
 import { useCreateProfileIfNoProfile } from './useCreateProfileIfNoProfile';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
@@ -11,8 +10,6 @@ import { ProfileForm } from './ProfileForm';
 import { useNavigate } from 'react-router-dom';
 
 export const OnboardingPage: FC = React.memo(() => {
-	const query_Profile = useQuery_Profile();
-	const mutation_CreateProfile = useMutation_CreateProfile();
 	const swiperRef = React.useRef<SwiperType | null>(null);
 	const navigate = useNavigate();
 	useCreateProfileIfNoProfile();
@@ -54,8 +51,8 @@ export const OnboardingPage: FC = React.memo(() => {
 						<span className="text-xl opacity-70 ">Now, to the farmers!</span>
 						<span className="h-8"></span>
 
-						<Button onClick={() => navigate('/s/marketplace')}>
-							Go To Marketplace
+						<Button onClick={() => navigate('/s/home')}>
+							Go To Homepage
 							<i className="fas fa-arrow-right ml-2"></i>
 						</Button>
 						<img

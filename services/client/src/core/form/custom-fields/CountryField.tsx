@@ -2,14 +2,12 @@ import { Autocomplete, FormHelperText, MenuItem, Select, TextField } from '@mui/
 import React, { FC, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { AppFieldProps } from './Field.type';
-import { useQuery_AllProducts } from '../../api/api';
 import countries from '../../../assets/countries.json';
 
 type RegisterProps = ReturnType<ReturnType<typeof useForm>['register']>;
 type CountryFieldProps = RegisterProps & AppFieldProps;
 
 export const CountryField: FC<CountryFieldProps> = React.memo(props => {
-	const query_Products = useQuery_AllProducts();
 
 	const [value, setValue] = React.useState<{ label: string; value: number } | null>(null);
 	const [inputValue, setInputValue] = React.useState<number | undefined>();
