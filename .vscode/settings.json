@@ -1,0 +1,31 @@
+{
+	"editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll": "explicit"
+	},
+	// The number of spaces a tab is equal to.
+	"editor.tabSize": 2,
+	// Insert spaces when pressing Tab.
+	"editor.insertSpaces": false,
+	// When opening a file, `editor.tabSize` and `editor.insertSpaces` will be detected based on the file contents.
+	"editor.detectIndentation": false,
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"typescript.tsserver.maxTsServerMemory": 8192,
+	"typescript.format.enable": false,
+	"editor.accessibilitySupport": "off",
+	"extensions.ignoreRecommendations": true,
+	"telemetry.telemetryLevel": "crash",
+	"typescript.surveys.enabled": false,
+	"typescript.disableAutomaticTypeAcquisition": true,
+	"update.enableWindowsBackgroundUpdates": false,
+	"update.mode": "none",
+	"workbench.enableExperiments": false,
+	"workbench.settings.enableNaturalLanguageSearch": false,
+	"[prisma]": {
+		"editor.defaultFormatter": "Prisma.prisma"
+	},
+  "css.customData": [".vscode/tailwind.json"],
+
+
+}

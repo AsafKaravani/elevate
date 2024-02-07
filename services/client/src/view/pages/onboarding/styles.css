@@ -1,0 +1,20 @@
+.onboarding-page {
+	.swiper {
+		@apply w-full h-full overflow-visible;
+	}
+
+	.swiper-slide {
+		@apply flex flex-col justify-center items-center;
+		@apply bg-slate-200 rounded-md;
+		@apply transition-all;
+		@apply scale-100 opacity-100;
+	}
+	.swiper-slide:not(.swiper-slide-active) {
+		@apply scale-90 opacity-30;
+		@apply relative -z-10;
+	}
+
+	.swiper-pagination {
+		@apply absolute -bottom-10 !important;
+	}
+}
