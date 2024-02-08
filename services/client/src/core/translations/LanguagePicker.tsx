@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 interface TProps extends React.PropsWithChildren {}
 
-const languages = ['es', 'en'];
+const languages = ['he', 'en'];
 
 export const LanguagePicker: FC<TProps> = React.memo(props => {
 	const { i18n } = useTranslation();
@@ -14,6 +14,9 @@ export const LanguagePicker: FC<TProps> = React.memo(props => {
 		if (!newLanguage) return;
 		setLanguage(newLanguage);
 		i18n.changeLanguage(newLanguage);
+		document.dir = i18n.dir();
+		document.body.dir = i18n.dir();
+		
 	};
 
 	return (
