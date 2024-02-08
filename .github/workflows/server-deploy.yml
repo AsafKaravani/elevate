@@ -33,5 +33,5 @@ jobs:
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: "elevate-server-dev" #Must be unique in Heroku
-          heroku_email: "asaf.karavani1@gmail.com"
+          heroku_email: "elevateappdev@gmail.com"
           appdir: ./services/server
