@@ -41,9 +41,9 @@ export const SideMenu: FC = React.memo(() => {
 			variant="permanent"
 			anchor="left"
 		>
-			<Toolbar className="h-12 min-h-0 bg-slate-300 flex justify-between p-2 ps-4">
-				<h1 className="text-xl font-bold">Elevate</h1>
-				<Button variant="text" className="text-slate-500 rounded-none min-w-0 h-full">
+			<Toolbar className="h-12 min-h-0 bg-primary-color flex justify-between p-2 ps-4">
+				<h1 className="text-xl font-bold text-white opacity-75 ">Elevate</h1>
+				<Button variant="text" className="text-white opacity-75 rounded-none min-w-0 h-full">
 					<i className="fa-solid fa-bars"></i>
 				</Button>
 			</Toolbar>

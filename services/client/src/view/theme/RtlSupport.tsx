@@ -3,6 +3,7 @@ import createCache from '@emotion/cache';
 import { prefixer } from 'stylis';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { useState, useEffect } from 'react';
+import i18n from '../../core/translations/i18n';
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -13,6 +14,11 @@ const cacheRtl = createCache({
 export function RtlSupport(props) {
 	const dir = useHtmlDir();
 	
+	useEffect(() => {
+		document.dir = i18n.dir();
+		document.body.dir = i18n.dir();
+	}, []);
+
 	if (dir === 'rtl') {
 		return <CacheProvider value={cacheRtl}>{props.children}</CacheProvider>;
 	} else {

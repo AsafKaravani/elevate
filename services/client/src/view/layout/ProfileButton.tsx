@@ -28,7 +28,7 @@ export const ProfileButton: FC = () => {
 			<Button
 				onClick={handleClick}
 				variant="text"
-				className="text-slate-500 rounded-none h-full flex gap-2 items-center"
+				className="text-white rounded-none h-full flex gap-2 items-center"
 			>
 				<Avatar className="w-7 h-7" src={profile?.picture_url} />
 				<span>
