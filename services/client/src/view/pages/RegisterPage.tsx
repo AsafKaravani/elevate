@@ -15,11 +15,7 @@ type RegisterFormFields = {
 export const RegisterPage: FC = () => {
 	const t = useTranslate();
 	const navigate = useNavigate();
-	const [
-		createUserWithEmailAndPassword,
-		user,
-		loading
-	] = useCreateUser();
+	const [createUserWithEmailAndPassword, user, loading] = useCreateUser();
 
 	const { register, handleSubmit } = useForm<RegisterFormFields>();
 	const onSubmit: SubmitHandler<RegisterFormFields> = form => {
@@ -37,7 +33,7 @@ export const RegisterPage: FC = () => {
 
 	return (
 		<div className="flex flex-col justify-center items-center bg-slate-200 h-screen">
-			<div className="flex flex-col items-center gap-4 bg-white p-10 h-min shadow-lg w-1/3 min-w-[400px] rounded relative">
+			<div className="flex flex-col items-center gap-4 bg-white p-10 h-min shadow-lg w-1/3 min-w-[350px] max-w-[90vw] rounded relative">
 				<div className="absolute top-0 left-0 p-4">
 					<LanguagePicker />
 				</div>

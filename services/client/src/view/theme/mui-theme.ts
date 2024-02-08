@@ -1,7 +1,7 @@
-import { createTheme } from "@mui/material";
+import { Direction, createTheme } from "@mui/material";
 
-export const muiTheme = createTheme({
-	direction: 'rtl',
+export const muiTheme = (dir?: Direction ) => createTheme({
+	direction: dir,
 	components: {
 		MuiButton: {
 			defaultProps: {

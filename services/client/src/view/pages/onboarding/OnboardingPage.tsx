@@ -8,43 +8,40 @@ import { Button } from '@mui/material';
 import { Swiper as SwiperType } from 'swiper/types';
 import { ProfileForm } from './ProfileForm';
 import { useNavigate } from 'react-router-dom';
+import { useDevice } from '../../layout/useDevice';
 
 export const OnboardingPage: FC = React.memo(() => {
 	const swiperRef = React.useRef<SwiperType | null>(null);
 	const navigate = useNavigate();
 	useCreateProfileIfNoProfile();
-
+	const device = useDevice();
 	return (
 		<div className="onboarding-page flex items-center flex-col h-full py-4 w-screen overflow-hidden">
-			<div className=" flex justify-center w-full h-1/2 mt-4">
+			<div className=" flex justify-center w-full h-5/6 lg:h-1/2 mt-4">
 				<Swiper
 					// install Swiper modules
 					modules={[Pagination]}
-					slidesPerView={2}
-					spaceBetween={50}
+					slidesPerView={device.isMobile ? 1 : 2}
+					spaceBetween={10}
 					centeredSlides={true}
 					pagination={true}
 					allowTouchMove={false}
 					onSwiper={swiper => (swiperRef.current = swiper)}
 					onSlideChange={() => console.log('slide change')}
 				>
-					<SwiperSlide>
+					<SwiperSlide className='p-4'>
 						<span className="text-3xl font-bold">Welcome to Elevate!</span>
 						<span className="text-xl opacity-70 ">Before we start, lets get to know each other ok?</span>
 						<span className="h-8"></span>
 						<Button onClick={() => swiperRef.current?.slideNext()}>
 							Start
-							<i className="fas fa-arrow-right ml-2"></i>
+							<i className="fas fa-arrow-right ms-2"></i>
 						</Button>
 
-						<img src="/art/farmer-smiling.png" className="pointer-events-none absolute -left-48 -bottom-28 scale-75" />
 					</SwiperSlide>
 					<SwiperSlide>
 						<ProfileForm onSubmitSuccess={() => swiperRef.current?.slideNext()} />
-						<img
-							src="/art/girl-sitting-writing.png"
-							className="pointer-events-none absolute -right-[20%] -bottom-[22%] w-[250px] -scale-x-100 z-50"
-						/>
+
 					</SwiperSlide>
 					<SwiperSlide>
 						<span className="text-3xl font-bold">Thank you!</span>
@@ -53,12 +50,9 @@ export const OnboardingPage: FC = React.memo(() => {
 
 						<Button onClick={() => navigate('/s/home')}>
 							Go To Homepage
-							<i className="fas fa-arrow-right ml-2"></i>
+							<i className="fas fa-arrow-right ms-2"></i>
 						</Button>
-						<img
-							src="/art/barista-holds-a-bag-of-coffee-bean.png"
-							className="pointer-events-none absolute -right-[60px] bottom-[0] w-[250px] -scale-x-100 z-50"
-						/>
+
 					</SwiperSlide>
 				</Swiper>
 			</div>

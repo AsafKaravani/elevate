@@ -2,7 +2,7 @@ import { ThemeProvider } from '@emotion/react';
 import React, { ReactElement, FC } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { muiTheme } from './mui-theme';
-import { RtlSupport } from './RtlSupport';
+import { RtlSupport, useHtmlDir } from './RtlSupport';
 
 interface AppThemeProps extends React.PropsWithChildren {
 	children: ReactElement | ReactElement[];
@@ -10,10 +10,12 @@ interface AppThemeProps extends React.PropsWithChildren {
 
 
 export const AppTheme: FC<AppThemeProps> = props => {
+	const dir = useHtmlDir();
+	const theme = muiTheme(dir);
 	return (
 		<>
 			<RtlSupport>
-				<ThemeProvider theme={muiTheme}>
+				<ThemeProvider theme={theme}>
 					<Toaster
 						toastOptions={{
 							duration: 5000

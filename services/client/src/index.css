@@ -1,4 +1,5 @@
 @import url('./assets/fontawesome/css/all.min.css');
+@import url('./assets/fontawesome/rtl.css');
 
 @tailwind base;
 @tailwind components;

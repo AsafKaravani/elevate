@@ -1,67 +1,83 @@
 import {
-	Drawer,
-	Toolbar,
 	Divider,
 	List,
 	ListItem,
 	ListItemButton,
 	ListItemText,
 	ListItemIcon,
-	Avatar,
-	Button
+	SwipeableDrawer,
+	Box
 } from '@mui/material';
 import React from 'react';
 import { FC } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { SideMenuItem } from './SideMenuItem';
-
-const drawerWidth = '20vw';
-const maxDrawerWidth = '220px';
-const minDrawerWidth = '200px';
+import { useRecoilState } from 'recoil';
+import { atom_layoutState } from './layout-state';
+const version = import.meta.env.PACKAGE_VERSION;
 
 export const SideMenu: FC = React.memo(() => {
 	const location = useLocation();
+	const navigate = useNavigate();
+	const [layoutState, setLayoutState] = useRecoilState(atom_layoutState);
+	
+	const goto = (path: string) => {
+		return () => {
+			navigate(path);
+			setLayoutState({isMenuOpen: false});
+		}
+	}
 
-	if (location.pathname === '/s/onboarding') return null;
-
+	if (location.pathname === '/s/onboarding') return null;	
 	return (
-		<Drawer
-			sx={{
-				width: drawerWidth,
-				maxWidth: maxDrawerWidth,
-				minWidth: minDrawerWidth,
-				flexShrink: 0,
-				'& .MuiDrawer-paper': {
-					width: drawerWidth,
-					maxWidth: maxDrawerWidth,
-					minWidth: minDrawerWidth,
-					boxSizing: 'border-box'
-				}
-			}}
-			variant="permanent"
-			anchor="left"
+		<SwipeableDrawer
+		  sx={{width: '100%'}}
+			anchor={'left'}
+			open={layoutState.isMenuOpen}
+			onOpen={() => setLayoutState({isMenuOpen: true})}
+			onClose={() => setLayoutState({isMenuOpen: false})}
 		>
-			<Toolbar className="h-12 min-h-0 bg-primary-color flex justify-between p-2 ps-4">
-				<h1 className="text-xl font-bold text-white opacity-75 ">Elevate</h1>
-				<Button variant="text" className="text-white opacity-75 rounded-none min-w-0 h-full">
-					<i className="fa-solid fa-bars"></i>
-				</Button>
-			</Toolbar>
-			<List>
-
-				{/* <SideMenuItem
-					disabled
-					to="/s/live-market"
-					text="Live Market"
-					icon="bullhorn"
-					//notifications={4}
-					//notificationsColor="red"
-				/> */}
-				{/* <SideMenuItem disabled text="Requests" to="/s/requests" icon="satellite-dish" />
-				<SideMenuItem disabled text="Sales" to="/s/sales" icon="sack-dollar" />
-				<SideMenuItem disabled text="Dispatches" to="/s/dispatches" icon="truck" notifications={2} />
-				<SideMenuItem disabled text="Invoices" to="/s/invoices" icon="receipt" /> */}
-			</List>
-		</Drawer>
+			
+			 <Box className="flex flex-col h-full" sx={{ maxWidth: 360, minWidth: 220}}>
+			 <ListItem className='w-full h-[48px] bg-primary-color flex justify-center items-center'>
+					<span className='font-bold'>
+							Elevate
+					</span>
+				</ListItem>
+				<nav className='flex-1'>
+					<List>
+						<ListItem>
+							<ListItemButton onClick={goto('/s/home')}>
+								<i className='fa-solid w-5 fa-home me-4'></i>
+								<ListItemText primary="Home" />
+							</ListItemButton>
+						</ListItem>
+						<ListItem>
+							<ListItemButton onClick={goto('/s/elevators')}>
+								<i className='fa-solid w-5 fa-elevator me-4'></i>
+								<ListItemText primary="Elevators" />
+							</ListItemButton>
+						</ListItem>
+						<ListItem>
+							<ListItemButton  onClick={goto('/s/add-device')}>
+								<i className='fa-solid w-5 fa-plus me-4'></i>
+								<ListItemText primary="Add Device"/>
+							</ListItemButton>
+						</ListItem>
+					</List>
+				</nav>
+				<Divider />
+				<nav>
+					<List>
+						<ListItem>
+							<ListItemButton>
+								<div className='text-sm opacity-50 w-full text-center'>
+								Version {version}
+								</div>
+							</ListItemButton>
+						</ListItem>
+					</List>
+				</nav>
+			</Box>
+		</SwipeableDrawer>
 	);
 });

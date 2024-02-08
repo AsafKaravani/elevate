@@ -1,0 +1,7 @@
+
+:not([dir=ltr]) [dir=rtl] .fas {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)!important;
+  -webkit-transform: scale(-1, 1)!important;
+      -ms-transform: scale(-1, 1)!important;
+          transform: scale(-1, 1)!important;
+}

@@ -112,7 +112,7 @@ export const ProfileForm: FC<ProfileFormProps> = React.memo(props => {
 				<TextField {...register('phone', { required: true })} placeholder={t('+972 52-1234-567')} fullWidth />
 				<Button onClick={submit} className="mt-2" disabled={mutation_UpdateProfile.isPending}>
 					Next
-					<i className="fas fa-arrow-right ml-2"></i>
+					<i className="fas fa-arrow-right ms-2"></i>
 				</Button>
 			</form>
 		</>

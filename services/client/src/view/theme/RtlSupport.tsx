@@ -4,6 +4,7 @@ import { prefixer } from 'stylis';
 import rtlPlugin from 'stylis-plugin-rtl';
 import { useState, useEffect } from 'react';
 import i18n from '../../core/translations/i18n';
+import { Direction } from '@mui/material';
 
 // Create rtl cache
 const cacheRtl = createCache({
@@ -26,7 +27,7 @@ export function RtlSupport(props) {
 	}
 }
 
-function useHtmlDir() {
+export function useHtmlDir() {
 
 	const [dir, setDir] = useState(document.dir);
 
@@ -50,5 +51,5 @@ function useHtmlDir() {
 		};
 	}, []);
 
-	return dir;
+	return dir as Direction | undefined;
 }
