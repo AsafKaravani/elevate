@@ -39,7 +39,7 @@ export const SideMenu: FC = React.memo(() => {
 			
 			 <Box className="flex flex-col h-full" sx={{ maxWidth: 360, minWidth: 220}}>
 			 <ListItem className='w-full h-[48px] bg-primary-color flex justify-center items-center'>
-					<span className='font-bold'>
+					<span className='font-bold text-white'>
 							Elevate
 					</span>
 				</ListItem>

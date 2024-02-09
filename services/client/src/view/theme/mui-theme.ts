@@ -1,6 +1,13 @@
 import { Direction, createTheme } from "@mui/material";
+import { red,  } from "@mui/material/colors";
 
 export const muiTheme = (dir?: Direction ) => createTheme({
+	palette: {
+		primary: {
+			main: getComputedStyle(document.documentElement).getPropertyValue('--primary-color'),
+		},
+	},
+
 	direction: dir,
 	components: {
 		MuiButton: {

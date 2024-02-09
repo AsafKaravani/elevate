@@ -29,7 +29,7 @@ export function RtlSupport(props) {
 
 export function useHtmlDir() {
 
-	const [dir, setDir] = useState(document.dir);
+	const [dir, setDir] = useState(i18n.dir() as string);
 
 	useEffect(() => {
 		// Directly target the <html> element

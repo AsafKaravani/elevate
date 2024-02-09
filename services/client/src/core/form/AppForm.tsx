@@ -64,7 +64,7 @@ export const AppForm: FC<AppFormProps> = React.memo(props => {
 									value={values[field.name]}
 									setValue={value => form.setValue(field.name as any, value)}
 								/>
-								<FormHelperText className="ms-3">{field.helperText}</FormHelperText>
+								{field.helperText && <FormHelperText className="ms-3">{field.helperText}</FormHelperText>}
 							</div>
 						);
 					})}

@@ -5,6 +5,7 @@ import { Shell } from '../../view/layout/Shell';
 import { checkAuthStatus } from '../firebase/firebase';
 import { GlobalJobs } from '../global-jobs/GlobalJobs';
 import { OnboardingPage } from '../../view/pages/onboarding/OnboardingPage';
+import { DevicePage } from '../../view/pages/device/DevicePage';
 
 const authGuard = async () => {
 	const isAuthenticated = await checkAuth();
@@ -45,5 +46,6 @@ export const ProtectedRoutes: RouteObject = {
 		{ path: 'onboarding', element: <OnboardingPage /> },
 		{ path: 'elevators', element: <>elevators</> },
 		{ path: 'add-device', element: <>add-device</> },
+		{ path: 'device/:id', element: <DevicePage/> },
 	]
 };

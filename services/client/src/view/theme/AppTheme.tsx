@@ -11,6 +11,7 @@ interface AppThemeProps extends React.PropsWithChildren {
 
 export const AppTheme: FC<AppThemeProps> = props => {
 	const dir = useHtmlDir();
+	
 	const theme = muiTheme(dir);
 	return (
 		<>
