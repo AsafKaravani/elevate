@@ -15,7 +15,7 @@ export const TopBar: FC = React.memo(() => {
 				<Button onClick={() => setLayoutState({isMenuOpen: true})} variant="text" className="text-white  opacity-75 rounded-none min-w-0 h-full" >
 					<i className="fa-solid fa-bars"></i>
 				</Button>
-				<LanguagePicker />
+				{/* <LanguagePicker /> */}
 			</span>
 			<ProfileButton />
 		</div>
