@@ -1,8 +1,309 @@
 /* eslint-disable */
 
 export const AllTypesProps: Record<string,any> = {
+	DeviceStatusLog:{
+		status:{
+
+		}
+	},
+	DeviceStatusLog_aggregate_fields:{
+		count:{
+			columns:"DeviceStatusLog_select_column"
+		}
+	},
+	DeviceStatusLog_append_input:{
+		status:"jsonb"
+	},
+	DeviceStatusLog_bool_exp:{
+		_and:"DeviceStatusLog_bool_exp",
+		_not:"DeviceStatusLog_bool_exp",
+		_or:"DeviceStatusLog_bool_exp",
+		board_id:"String_comparison_exp",
+		created_at:"timestamp_comparison_exp",
+		id:"uuid_comparison_exp",
+		status:"jsonb_comparison_exp",
+		updated_at:"timestamp_comparison_exp"
+	},
+	DeviceStatusLog_constraint: "enum" as const,
+	DeviceStatusLog_delete_at_path_input:{
+
+	},
+	DeviceStatusLog_delete_elem_input:{
+
+	},
+	DeviceStatusLog_delete_key_input:{
+
+	},
+	DeviceStatusLog_insert_input:{
+		created_at:"timestamp",
+		id:"uuid",
+		status:"jsonb",
+		updated_at:"timestamp"
+	},
+	DeviceStatusLog_on_conflict:{
+		constraint:"DeviceStatusLog_constraint",
+		update_columns:"DeviceStatusLog_update_column",
+		where:"DeviceStatusLog_bool_exp"
+	},
+	DeviceStatusLog_order_by:{
+		board_id:"order_by",
+		created_at:"order_by",
+		id:"order_by",
+		status:"order_by",
+		updated_at:"order_by"
+	},
+	DeviceStatusLog_pk_columns_input:{
+		id:"uuid"
+	},
+	DeviceStatusLog_prepend_input:{
+		status:"jsonb"
+	},
+	DeviceStatusLog_select_column: "enum" as const,
+	DeviceStatusLog_set_input:{
+		created_at:"timestamp",
+		id:"uuid",
+		status:"jsonb",
+		updated_at:"timestamp"
+	},
+	DeviceStatusLog_stream_cursor_input:{
+		initial_value:"DeviceStatusLog_stream_cursor_value_input",
+		ordering:"cursor_ordering"
+	},
+	DeviceStatusLog_stream_cursor_value_input:{
+		created_at:"timestamp",
+		id:"uuid",
+		status:"jsonb",
+		updated_at:"timestamp"
+	},
+	DeviceStatusLog_update_column: "enum" as const,
+	DeviceStatusLog_updates:{
+		_append:"DeviceStatusLog_append_input",
+		_delete_at_path:"DeviceStatusLog_delete_at_path_input",
+		_delete_elem:"DeviceStatusLog_delete_elem_input",
+		_delete_key:"DeviceStatusLog_delete_key_input",
+		_prepend:"DeviceStatusLog_prepend_input",
+		_set:"DeviceStatusLog_set_input",
+		where:"DeviceStatusLog_bool_exp"
+	},
+	DeviceType:{
+		Devices:{
+			distinct_on:"Device_select_column",
+			order_by:"Device_order_by",
+			where:"Device_bool_exp"
+		},
+		Devices_aggregate:{
+			distinct_on:"Device_select_column",
+			order_by:"Device_order_by",
+			where:"Device_bool_exp"
+		},
+		status_fields:{
+
+		}
+	},
+	DeviceType_aggregate_fields:{
+		count:{
+			columns:"DeviceType_select_column"
+		}
+	},
+	DeviceType_append_input:{
+		status_fields:"jsonb"
+	},
+	DeviceType_bool_exp:{
+		Devices:"Device_bool_exp",
+		Devices_aggregate:"Device_aggregate_bool_exp",
+		_and:"DeviceType_bool_exp",
+		_not:"DeviceType_bool_exp",
+		_or:"DeviceType_bool_exp",
+		created_at:"timestamp_comparison_exp",
+		id:"uuid_comparison_exp",
+		name:"String_comparison_exp",
+		status_fields:"jsonb_comparison_exp",
+		updated_at:"timestamp_comparison_exp"
+	},
+	DeviceType_constraint: "enum" as const,
+	DeviceType_delete_at_path_input:{
+
+	},
+	DeviceType_delete_elem_input:{
+
+	},
+	DeviceType_delete_key_input:{
+
+	},
+	DeviceType_insert_input:{
+		Devices:"Device_arr_rel_insert_input",
+		created_at:"timestamp",
+		id:"uuid",
+		status_fields:"jsonb",
+		updated_at:"timestamp"
+	},
+	DeviceType_obj_rel_insert_input:{
+		data:"DeviceType_insert_input",
+		on_conflict:"DeviceType_on_conflict"
+	},
+	DeviceType_on_conflict:{
+		constraint:"DeviceType_constraint",
+		update_columns:"DeviceType_update_column",
+		where:"DeviceType_bool_exp"
+	},
+	DeviceType_order_by:{
+		Devices_aggregate:"Device_aggregate_order_by",
+		created_at:"order_by",
+		id:"order_by",
+		name:"order_by",
+		status_fields:"order_by",
+		updated_at:"order_by"
+	},
+	DeviceType_pk_columns_input:{
+		id:"uuid"
+	},
+	DeviceType_prepend_input:{
+		status_fields:"jsonb"
+	},
+	DeviceType_select_column: "enum" as const,
+	DeviceType_set_input:{
+		created_at:"timestamp",
+		id:"uuid",
+		status_fields:"jsonb",
+		updated_at:"timestamp"
+	},
+	DeviceType_stream_cursor_input:{
+		initial_value:"DeviceType_stream_cursor_value_input",
+		ordering:"cursor_ordering"
+	},
+	DeviceType_stream_cursor_value_input:{
+		created_at:"timestamp",
+		id:"uuid",
+		status_fields:"jsonb",
+		updated_at:"timestamp"
+	},
+	DeviceType_update_column: "enum" as const,
+	DeviceType_updates:{
+		_append:"DeviceType_append_input",
+		_delete_at_path:"DeviceType_delete_at_path_input",
+		_delete_elem:"DeviceType_delete_elem_input",
+		_delete_key:"DeviceType_delete_key_input",
+		_prepend:"DeviceType_prepend_input",
+		_set:"DeviceType_set_input",
+		where:"DeviceType_bool_exp"
+	},
+	Device_aggregate_bool_exp:{
+		count:"Device_aggregate_bool_exp_count"
+	},
+	Device_aggregate_bool_exp_count:{
+		arguments:"Device_select_column",
+		filter:"Device_bool_exp",
+		predicate:"Int_comparison_exp"
+	},
+	Device_aggregate_fields:{
+		count:{
+			columns:"Device_select_column"
+		}
+	},
+	Device_aggregate_order_by:{
+		count:"order_by",
+		max:"Device_max_order_by",
+		min:"Device_min_order_by"
+	},
+	Device_arr_rel_insert_input:{
+		data:"Device_insert_input",
+		on_conflict:"Device_on_conflict"
+	},
+	Device_bool_exp:{
+		DeviceType:"DeviceType_bool_exp",
+		Profile:"Profile_bool_exp",
+		_and:"Device_bool_exp",
+		_not:"Device_bool_exp",
+		_or:"Device_bool_exp",
+		board_id:"String_comparison_exp",
+		created_at:"timestamp_comparison_exp",
+		id:"uuid_comparison_exp",
+		profile_id:"uuid_comparison_exp",
+		type_id:"uuid_comparison_exp",
+		updated_at:"timestamp_comparison_exp"
+	},
+	Device_constraint: "enum" as const,
+	Device_insert_input:{
+		DeviceType:"DeviceType_obj_rel_insert_input",
+		Profile:"Profile_obj_rel_insert_input",
+		created_at:"timestamp",
+		id:"uuid",
+		profile_id:"uuid",
+		type_id:"uuid",
+		updated_at:"timestamp"
+	},
+	Device_max_order_by:{
+		board_id:"order_by",
+		created_at:"order_by",
+		id:"order_by",
+		profile_id:"order_by",
+		type_id:"order_by",
+		updated_at:"order_by"
+	},
+	Device_min_order_by:{
+		board_id:"order_by",
+		created_at:"order_by",
+		id:"order_by",
+		profile_id:"order_by",
+		type_id:"order_by",
+		updated_at:"order_by"
+	},
+	Device_on_conflict:{
+		constraint:"Device_constraint",
+		update_columns:"Device_update_column",
+		where:"Device_bool_exp"
+	},
+	Device_order_by:{
+		DeviceType:"DeviceType_order_by",
+		Profile:"Profile_order_by",
+		board_id:"order_by",
+		created_at:"order_by",
+		id:"order_by",
+		profile_id:"order_by",
+		type_id:"order_by",
+		updated_at:"order_by"
+	},
+	Device_pk_columns_input:{
+		id:"uuid"
+	},
+	Device_select_column: "enum" as const,
+	Device_set_input:{
+		created_at:"timestamp",
+		id:"uuid",
+		profile_id:"uuid",
+		type_id:"uuid",
+		updated_at:"timestamp"
+	},
+	Device_stream_cursor_input:{
+		initial_value:"Device_stream_cursor_value_input",
+		ordering:"cursor_ordering"
+	},
+	Device_stream_cursor_value_input:{
+		created_at:"timestamp",
+		id:"uuid",
+		profile_id:"uuid",
+		type_id:"uuid",
+		updated_at:"timestamp"
+	},
+	Device_update_column: "enum" as const,
+	Device_updates:{
+		_set:"Device_set_input",
+		where:"Device_bool_exp"
+	},
 	Int_comparison_exp:{
 
+	},
+	Profile:{
+		Devices:{
+			distinct_on:"Device_select_column",
+			order_by:"Device_order_by",
+			where:"Device_bool_exp"
+		},
+		Devices_aggregate:{
+			distinct_on:"Device_select_column",
+			order_by:"Device_order_by",
+			where:"Device_bool_exp"
+		}
 	},
 	Profile_aggregate_fields:{
 		count:{
@@ -10,6 +311,8 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	Profile_bool_exp:{
+		Devices:"Device_bool_exp",
+		Devices_aggregate:"Device_aggregate_bool_exp",
 		_and:"Profile_bool_exp",
 		_not:"Profile_bool_exp",
 		_or:"Profile_bool_exp",
@@ -24,9 +327,14 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	Profile_constraint: "enum" as const,
 	Profile_insert_input:{
+		Devices:"Device_arr_rel_insert_input",
 		created_at:"timestamp",
 		id:"uuid",
 		updated_at:"timestamp"
+	},
+	Profile_obj_rel_insert_input:{
+		data:"Profile_insert_input",
+		on_conflict:"Profile_on_conflict"
 	},
 	Profile_on_conflict:{
 		constraint:"Profile_constraint",
@@ -34,6 +342,7 @@ export const AllTypesProps: Record<string,any> = {
 		where:"Profile_bool_exp"
 	},
 	Profile_order_by:{
+		Devices_aggregate:"Device_aggregate_order_by",
 		created_at:"order_by",
 		email:"order_by",
 		first_name:"order_by",
@@ -136,7 +445,42 @@ export const AllTypesProps: Record<string,any> = {
 		where:"_prisma_migrations_bool_exp"
 	},
 	cursor_ordering: "enum" as const,
+	jsonb: `scalar.jsonb` as const,
+	jsonb_cast_exp:{
+		String:"String_comparison_exp"
+	},
+	jsonb_comparison_exp:{
+		_cast:"jsonb_cast_exp",
+		_contained_in:"jsonb",
+		_contains:"jsonb",
+		_eq:"jsonb",
+		_gt:"jsonb",
+		_gte:"jsonb",
+		_in:"jsonb",
+		_lt:"jsonb",
+		_lte:"jsonb",
+		_neq:"jsonb",
+		_nin:"jsonb"
+	},
 	mutation_root:{
+		delete_Device:{
+			where:"Device_bool_exp"
+		},
+		delete_DeviceStatusLog:{
+			where:"DeviceStatusLog_bool_exp"
+		},
+		delete_DeviceStatusLog_by_pk:{
+			id:"uuid"
+		},
+		delete_DeviceType:{
+			where:"DeviceType_bool_exp"
+		},
+		delete_DeviceType_by_pk:{
+			id:"uuid"
+		},
+		delete_Device_by_pk:{
+			id:"uuid"
+		},
 		delete_Profile:{
 			where:"Profile_bool_exp"
 		},
@@ -148,6 +492,30 @@ export const AllTypesProps: Record<string,any> = {
 		},
 		delete__prisma_migrations_by_pk:{
 
+		},
+		insert_Device:{
+			objects:"Device_insert_input",
+			on_conflict:"Device_on_conflict"
+		},
+		insert_DeviceStatusLog:{
+			objects:"DeviceStatusLog_insert_input",
+			on_conflict:"DeviceStatusLog_on_conflict"
+		},
+		insert_DeviceStatusLog_one:{
+			object:"DeviceStatusLog_insert_input",
+			on_conflict:"DeviceStatusLog_on_conflict"
+		},
+		insert_DeviceType:{
+			objects:"DeviceType_insert_input",
+			on_conflict:"DeviceType_on_conflict"
+		},
+		insert_DeviceType_one:{
+			object:"DeviceType_insert_input",
+			on_conflict:"DeviceType_on_conflict"
+		},
+		insert_Device_one:{
+			object:"Device_insert_input",
+			on_conflict:"Device_on_conflict"
 		},
 		insert_Profile:{
 			objects:"Profile_insert_input",
@@ -164,6 +532,59 @@ export const AllTypesProps: Record<string,any> = {
 		insert__prisma_migrations_one:{
 			object:"_prisma_migrations_insert_input",
 			on_conflict:"_prisma_migrations_on_conflict"
+		},
+		update_Device:{
+			_set:"Device_set_input",
+			where:"Device_bool_exp"
+		},
+		update_DeviceStatusLog:{
+			_append:"DeviceStatusLog_append_input",
+			_delete_at_path:"DeviceStatusLog_delete_at_path_input",
+			_delete_elem:"DeviceStatusLog_delete_elem_input",
+			_delete_key:"DeviceStatusLog_delete_key_input",
+			_prepend:"DeviceStatusLog_prepend_input",
+			_set:"DeviceStatusLog_set_input",
+			where:"DeviceStatusLog_bool_exp"
+		},
+		update_DeviceStatusLog_by_pk:{
+			_append:"DeviceStatusLog_append_input",
+			_delete_at_path:"DeviceStatusLog_delete_at_path_input",
+			_delete_elem:"DeviceStatusLog_delete_elem_input",
+			_delete_key:"DeviceStatusLog_delete_key_input",
+			_prepend:"DeviceStatusLog_prepend_input",
+			_set:"DeviceStatusLog_set_input",
+			pk_columns:"DeviceStatusLog_pk_columns_input"
+		},
+		update_DeviceStatusLog_many:{
+			updates:"DeviceStatusLog_updates"
+		},
+		update_DeviceType:{
+			_append:"DeviceType_append_input",
+			_delete_at_path:"DeviceType_delete_at_path_input",
+			_delete_elem:"DeviceType_delete_elem_input",
+			_delete_key:"DeviceType_delete_key_input",
+			_prepend:"DeviceType_prepend_input",
+			_set:"DeviceType_set_input",
+			where:"DeviceType_bool_exp"
+		},
+		update_DeviceType_by_pk:{
+			_append:"DeviceType_append_input",
+			_delete_at_path:"DeviceType_delete_at_path_input",
+			_delete_elem:"DeviceType_delete_elem_input",
+			_delete_key:"DeviceType_delete_key_input",
+			_prepend:"DeviceType_prepend_input",
+			_set:"DeviceType_set_input",
+			pk_columns:"DeviceType_pk_columns_input"
+		},
+		update_DeviceType_many:{
+			updates:"DeviceType_updates"
+		},
+		update_Device_by_pk:{
+			_set:"Device_set_input",
+			pk_columns:"Device_pk_columns_input"
+		},
+		update_Device_many:{
+			updates:"Device_updates"
 		},
 		update_Profile:{
 			_set:"Profile_set_input",
@@ -192,6 +613,45 @@ export const AllTypesProps: Record<string,any> = {
 	},
 	order_by: "enum" as const,
 	query_root:{
+		Device:{
+			distinct_on:"Device_select_column",
+			order_by:"Device_order_by",
+			where:"Device_bool_exp"
+		},
+		DeviceStatusLog:{
+			distinct_on:"DeviceStatusLog_select_column",
+			order_by:"DeviceStatusLog_order_by",
+			where:"DeviceStatusLog_bool_exp"
+		},
+		DeviceStatusLog_aggregate:{
+			distinct_on:"DeviceStatusLog_select_column",
+			order_by:"DeviceStatusLog_order_by",
+			where:"DeviceStatusLog_bool_exp"
+		},
+		DeviceStatusLog_by_pk:{
+			id:"uuid"
+		},
+		DeviceType:{
+			distinct_on:"DeviceType_select_column",
+			order_by:"DeviceType_order_by",
+			where:"DeviceType_bool_exp"
+		},
+		DeviceType_aggregate:{
+			distinct_on:"DeviceType_select_column",
+			order_by:"DeviceType_order_by",
+			where:"DeviceType_bool_exp"
+		},
+		DeviceType_by_pk:{
+			id:"uuid"
+		},
+		Device_aggregate:{
+			distinct_on:"Device_select_column",
+			order_by:"Device_order_by",
+			where:"Device_bool_exp"
+		},
+		Device_by_pk:{
+			id:"uuid"
+		},
 		Profile:{
 			distinct_on:"Profile_select_column",
 			order_by:"Profile_order_by",
@@ -220,6 +680,57 @@ export const AllTypesProps: Record<string,any> = {
 		}
 	},
 	subscription_root:{
+		Device:{
+			distinct_on:"Device_select_column",
+			order_by:"Device_order_by",
+			where:"Device_bool_exp"
+		},
+		DeviceStatusLog:{
+			distinct_on:"DeviceStatusLog_select_column",
+			order_by:"DeviceStatusLog_order_by",
+			where:"DeviceStatusLog_bool_exp"
+		},
+		DeviceStatusLog_aggregate:{
+			distinct_on:"DeviceStatusLog_select_column",
+			order_by:"DeviceStatusLog_order_by",
+			where:"DeviceStatusLog_bool_exp"
+		},
+		DeviceStatusLog_by_pk:{
+			id:"uuid"
+		},
+		DeviceStatusLog_stream:{
+			cursor:"DeviceStatusLog_stream_cursor_input",
+			where:"DeviceStatusLog_bool_exp"
+		},
+		DeviceType:{
+			distinct_on:"DeviceType_select_column",
+			order_by:"DeviceType_order_by",
+			where:"DeviceType_bool_exp"
+		},
+		DeviceType_aggregate:{
+			distinct_on:"DeviceType_select_column",
+			order_by:"DeviceType_order_by",
+			where:"DeviceType_bool_exp"
+		},
+		DeviceType_by_pk:{
+			id:"uuid"
+		},
+		DeviceType_stream:{
+			cursor:"DeviceType_stream_cursor_input",
+			where:"DeviceType_bool_exp"
+		},
+		Device_aggregate:{
+			distinct_on:"Device_select_column",
+			order_by:"Device_order_by",
+			where:"Device_bool_exp"
+		},
+		Device_by_pk:{
+			id:"uuid"
+		},
+		Device_stream:{
+			cursor:"Device_stream_cursor_input",
+			where:"Device_bool_exp"
+		},
 		Profile:{
 			distinct_on:"Profile_select_column",
 			order_by:"Profile_order_by",
@@ -295,7 +806,114 @@ export const ReturnTypes: Record<string,any> = {
 		ttl:"Int",
 		refresh:"Boolean"
 	},
+	Device:{
+		DeviceType:"DeviceType",
+		Profile:"Profile",
+		board_id:"String",
+		created_at:"timestamp",
+		id:"uuid",
+		profile_id:"uuid",
+		type_id:"uuid",
+		updated_at:"timestamp"
+	},
+	DeviceStatusLog:{
+		board_id:"String",
+		created_at:"timestamp",
+		id:"uuid",
+		status:"jsonb",
+		updated_at:"timestamp"
+	},
+	DeviceStatusLog_aggregate:{
+		aggregate:"DeviceStatusLog_aggregate_fields",
+		nodes:"DeviceStatusLog"
+	},
+	DeviceStatusLog_aggregate_fields:{
+		count:"Int",
+		max:"DeviceStatusLog_max_fields",
+		min:"DeviceStatusLog_min_fields"
+	},
+	DeviceStatusLog_max_fields:{
+		board_id:"String",
+		created_at:"timestamp",
+		id:"uuid",
+		updated_at:"timestamp"
+	},
+	DeviceStatusLog_min_fields:{
+		board_id:"String",
+		created_at:"timestamp",
+		id:"uuid",
+		updated_at:"timestamp"
+	},
+	DeviceStatusLog_mutation_response:{
+		affected_rows:"Int",
+		returning:"DeviceStatusLog"
+	},
+	DeviceType:{
+		Devices:"Device",
+		Devices_aggregate:"Device_aggregate",
+		created_at:"timestamp",
+		id:"uuid",
+		name:"String",
+		status_fields:"jsonb",
+		updated_at:"timestamp"
+	},
+	DeviceType_aggregate:{
+		aggregate:"DeviceType_aggregate_fields",
+		nodes:"DeviceType"
+	},
+	DeviceType_aggregate_fields:{
+		count:"Int",
+		max:"DeviceType_max_fields",
+		min:"DeviceType_min_fields"
+	},
+	DeviceType_max_fields:{
+		created_at:"timestamp",
+		id:"uuid",
+		name:"String",
+		updated_at:"timestamp"
+	},
+	DeviceType_min_fields:{
+		created_at:"timestamp",
+		id:"uuid",
+		name:"String",
+		updated_at:"timestamp"
+	},
+	DeviceType_mutation_response:{
+		affected_rows:"Int",
+		returning:"DeviceType"
+	},
+	Device_aggregate:{
+		aggregate:"Device_aggregate_fields",
+		nodes:"Device"
+	},
+	Device_aggregate_fields:{
+		count:"Int",
+		max:"Device_max_fields",
+		min:"Device_min_fields"
+	},
+	Device_max_fields:{
+		board_id:"String",
+		created_at:"timestamp",
+		id:"uuid",
+		profile_id:"uuid",
+		type_id:"uuid",
+		updated_at:"timestamp"
+	},
+	Device_min_fields:{
+		board_id:"String",
+		created_at:"timestamp",
+		id:"uuid",
+		profile_id:"uuid",
+		type_id:"uuid",
+		updated_at:"timestamp"
+	},
+	Device_mutation_response:{
+		affected_rows:"Int",
+		returning:"Device"
+	},
 	Profile:{
+		Devices:"Device",
+		Devices_aggregate:"Device_aggregate",
 		created_at:"timestamp",
 		email:"String",
 		first_name:"String",
@@ -413,15 +1031,37 @@ export const ReturnTypes: Record<string,any> = {
 	_prisma_migrations_variance_fields:{
 		applied_steps_count:"Float"
 	},
+	jsonb: `scalar.jsonb` as const,
 	mutation_root:{
+		delete_Device:"Device_mutation_response",
+		delete_DeviceStatusLog:"DeviceStatusLog_mutation_response",
+		delete_DeviceStatusLog_by_pk:"DeviceStatusLog",
+		delete_DeviceType:"DeviceType_mutation_response",
+		delete_DeviceType_by_pk:"DeviceType",
+		delete_Device_by_pk:"Device",
 		delete_Profile:"Profile_mutation_response",
 		delete_Profile_by_pk:"Profile",
 		delete__prisma_migrations:"_prisma_migrations_mutation_response",
 		delete__prisma_migrations_by_pk:"_prisma_migrations",
+		insert_Device:"Device_mutation_response",
+		insert_DeviceStatusLog:"DeviceStatusLog_mutation_response",
+		insert_DeviceStatusLog_one:"DeviceStatusLog",
+		insert_DeviceType:"DeviceType_mutation_response",
+		insert_DeviceType_one:"DeviceType",
+		insert_Device_one:"Device",
 		insert_Profile:"Profile_mutation_response",
 		insert_Profile_one:"Profile",
 		insert__prisma_migrations:"_prisma_migrations_mutation_response",
 		insert__prisma_migrations_one:"_prisma_migrations",
+		update_Device:"Device_mutation_response",
+		update_DeviceStatusLog:"DeviceStatusLog_mutation_response",
+		update_DeviceStatusLog_by_pk:"DeviceStatusLog",
+		update_DeviceStatusLog_many:"DeviceStatusLog_mutation_response",
+		update_DeviceType:"DeviceType_mutation_response",
+		update_DeviceType_by_pk:"DeviceType",
+		update_DeviceType_many:"DeviceType_mutation_response",
+		update_Device_by_pk:"Device",
+		update_Device_many:"Device_mutation_response",
 		update_Profile:"Profile_mutation_response",
 		update_Profile_by_pk:"Profile",
 		update_Profile_many:"Profile_mutation_response",
@@ -430,6 +1070,15 @@ export const ReturnTypes: Record<string,any> = {
 		update__prisma_migrations_many:"_prisma_migrations_mutation_response"
 	},
 	query_root:{
+		Device:"Device",
+		DeviceStatusLog:"DeviceStatusLog",
+		DeviceStatusLog_aggregate:"DeviceStatusLog_aggregate",
+		DeviceStatusLog_by_pk:"DeviceStatusLog",
+		DeviceType:"DeviceType",
+		DeviceType_aggregate:"DeviceType_aggregate",
+		DeviceType_by_pk:"DeviceType",
+		Device_aggregate:"Device_aggregate",
+		Device_by_pk:"Device",
 		Profile:"Profile",
 		Profile_aggregate:"Profile_aggregate",
 		Profile_by_pk:"Profile",
@@ -438,6 +1087,18 @@ export const ReturnTypes: Record<string,any> = {
 		_prisma_migrations_by_pk:"_prisma_migrations"
 	},
 	subscription_root:{
+		Device:"Device",
+		DeviceStatusLog:"DeviceStatusLog",
+		DeviceStatusLog_aggregate:"DeviceStatusLog_aggregate",
+		DeviceStatusLog_by_pk:"DeviceStatusLog",
+		DeviceStatusLog_stream:"DeviceStatusLog",
+		DeviceType:"DeviceType",
+		DeviceType_aggregate:"DeviceType_aggregate",
+		DeviceType_by_pk:"DeviceType",
+		DeviceType_stream:"DeviceType",
+		Device_aggregate:"Device_aggregate",
+		Device_by_pk:"Device",
+		Device_stream:"Device",
 		Profile:"Profile",
 		Profile_aggregate:"Profile_aggregate",
 		Profile_by_pk:"Profile",

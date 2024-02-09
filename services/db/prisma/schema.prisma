@@ -11,12 +11,60 @@ datasource db {
 }
 
 model Profile {
-  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  email       String    @unique
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email       String   @unique
   picture_url String?
   first_name  String?
   last_name   String?
   phone       String?
-  created_at  DateTime  @default(now())
-  updated_at  DateTime? @updatedAt
+  Devices     Device[]
+
+  created_at DateTime  @default(now())
+  updated_at DateTime? @updatedAt
+}
+
+model Device {
+  id         String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  Profile    Profile    @relation(fields: [profile_id], references: [id])
+  profile_id String     @db.Uuid
+  board_id   String     @unique
+  type_id    String     @db.Uuid
+  Type       DeviceType @relation(fields: [type_id], references: [id])
+
+  created_at DateTime  @default(now())
+  updated_at DateTime? @updatedAt
+}
+
+model DeviceStatusLog {
+  id       String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  board_id String
+  status   Json?
+
+  created_at DateTime  @default(now())
+  updated_at DateTime? @updatedAt
+}
+
+model DeviceType {
+  id   String @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name String @unique
+
+  // Info about the status log fields such as name, type, etc.
+  // {
+  // 	gpio3: {
+  // 		label: "Open door",
+  // 		correctState: "val === 1",
+  // 	},
+  // {
+  // 	gpio3: {
+  // 		label: "Weight",
+  // 		correctState: "val < 350",
+  // 		helperText: "Should be less than 350 kg",
+  // 	},
+  // }
+  status_fields Json
+
+  Devices Device[]
+
+  created_at DateTime  @default(now())
+  updated_at DateTime? @updatedAt
 }
