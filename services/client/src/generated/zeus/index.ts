@@ -69,6 +69,7 @@ export const apiFetch =
           return response.data;
         });
     }
+		
     return fetch(`${options[0]}`, {
       body: JSON.stringify({ query, variables }),
       method: 'POST',

@@ -1,10 +1,11 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
+import { DefaultError, QueryClient, UseMutationOptions, useMutation, useQuery } from '@tanstack/react-query';
 import { chain, scalars } from '../../generated/zeus/chain';
 import { ModelTypes, ValueTypes, order_by } from '../../generated/zeus';
 import { useAuth, useAuthId } from '../firebase/firebase';
-import toast from 'react-hot-toast';
+import toast, { Renderable, Toast, ValueOrFunction } from 'react-hot-toast';
 import { useRef } from 'react';
 import { queryClient } from './query-client';
+import { useAppMutation } from './hooks';
 
 
 // ---- Profile --------------------------------------------------------------------------
@@ -92,6 +93,53 @@ export const useMutation_UpdateProfile = () => {
 		}
 	});
 };
+
+
+// ---- Type ----------------------------------------------------------------------------
+export type DeviceType = DeepPartial<ModelTypes['DeviceType']>;
+
+export const useQuery_AllDeviceTypes = () => {
+	return useQuery({
+		queryKey: ['allDeviceTypes'],
+		queryFn: () =>
+			chain('query', { scalars })({
+				DeviceType: [{
+					
+				}, {
+					id: true,
+					name: true,
+					created_at: true,
+					updated_at: true
+				}]
+			})
+	});
+}
+
+
+
+export const useMutation_CreateDeviceType = () => {
+	return useAppMutation({
+		mutationFn: (deviceType: DeviceType) => {
+			return chain('mutation', { scalars })({
+				insert_DeviceType_one: [{
+					object: toInput(deviceType)
+				}, {
+					id: true
+				}]
+			});
+		},
+		onSettled: (data, error) => {
+			queryClient.invalidateQueries({ queryKey: ['allDeviceTypes'] });
+		},
+		toast: {
+			loading: 'יוצר סוג...',
+			success: 'סוג נוצר בהצלחה',
+			error: 'שגיאה ביצירת סוג'
+		}
+	}, queryClient);
+
+}
+
 
 // ---- Utils ----------------------------------------------------------------------------
 // A function that loop over keys of object and if the key's first latter is uppercase then nest the value in {data: value}

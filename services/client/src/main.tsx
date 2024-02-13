@@ -15,6 +15,23 @@ import './core/translations/i18n';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+const originalFetch = window.fetch;
+
+window.fetch = (...args) => {
+	console.log('fetch args = ', args);
+	const url = args[0];
+	const request = args[1];
+	const isGraphql = request?.method === 'POST' && url.toString().includes('graphql');
+	if (isGraphql && request.body?.toString()) {
+		// remove backslashes from the body
+		const body = JSON.parse(request.body?.toString());
+		const queryName = body.query.split('{')[1].split('(')[0].trim();
+		args[0] = url + `?${queryName}`
+	}
+	
+	return originalFetch(...args);
+}
+
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<React.StrictMode>
 		<App />

@@ -19,7 +19,7 @@ export const AppTheme: FC<AppThemeProps> = props => {
 				<ThemeProvider theme={theme}>
 					<Toaster
 						toastOptions={{
-							duration: 5000
+							duration: 3000
 						}}
 					/>
 					{props.children}

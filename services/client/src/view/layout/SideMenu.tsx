@@ -27,6 +27,8 @@ export const SideMenu: FC = React.memo(() => {
 		}
 	}
 
+	const isActive = (path: string) => location.pathname === path ? 'bg-gray-300' : '';
+
 	if (location.pathname === '/s/onboarding') return null;	
 	return (
 		<SwipeableDrawer
@@ -48,23 +50,23 @@ export const SideMenu: FC = React.memo(() => {
 					<div className='w-[48px]'></div>
 				</ListItem>
 				<nav className='flex-1'>
-					<List>
-						<ListItem>
+					<List className='p-0'>
+						<ListItem className={isActive('/s/home')}>
 							<ListItemButton onClick={goto('/s/home')}>
-								<i className='fa-solid w-5 fa-home me-4'></i>
+								<i className='fa-solid w-5 fa-home me-2 text-primary-color opacity-75'></i>
 								<ListItemText primary="בית" />
 							</ListItemButton>
 						</ListItem>
-						<ListItem>
+						<ListItem className={isActive('/s/elevators')}>
 							<ListItemButton onClick={goto('/s/elevators')}>
-								<i className='fa-solid w-5 fa-elevator me-4'></i>
+								<i className='fa-solid w-5 fa-elevator me-2 text-primary-color opacity-75'></i>
 								<ListItemText primary="מעליות" />
 							</ListItemButton>
 						</ListItem>
-						<ListItem>
-							<ListItemButton  onClick={goto('/s/add-device')}>
-								<i className='fa-solid w-5 fa-plus me-4'></i>
-								<ListItemText primary="הוסף מכשיר"/>
+						<ListItem className={isActive('/s/types')}>
+							<ListItemButton  onClick={goto('/s/types')}>
+								<i className='fa-solid w-5 fa-grid me-2 text-primary-color opacity-75'></i>
+								<ListItemText primary="סוגים"/>
 							</ListItemButton>
 						</ListItem>
 					</List>

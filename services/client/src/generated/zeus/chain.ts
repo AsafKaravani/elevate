@@ -17,7 +17,13 @@ export const scalars: any = ZeusScalars({
 	float8: {
 		decode: (e: unknown) => parseFloat(e as string),
 		encode: (e: unknown) => e as string
+	},
+	jsonb: {
+		decode: (e: unknown) => JSON.parse(e as string),
+		encode: (e: unknown) => removeQuotesFromKeys(JSON.stringify(e))
 	}
 });
+
+const removeQuotesFromKeys = (stringifiedJson: string) => stringifiedJson.replace(/"([^"]+)":/g, '$1:');
 
 export const chain = Chain(import.meta.env.VITE_HASURA_GQL_ENDPOINT);

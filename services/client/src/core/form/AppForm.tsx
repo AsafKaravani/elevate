@@ -30,7 +30,7 @@ const rowColToCssGrid = (grid?: { row?: number; col?: number; rowSpan?: number; 
 	if (grid.colSpan) {
 		className = className.concat(`col-span-${grid.colSpan} `);
 	} else {
-		className = className.concat(`col-span-2 `);
+		className = className.concat(`lg:col-span-2 col-span-12`);
 	}
 	return className;
 };
